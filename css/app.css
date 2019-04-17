@@ -1,0 +1,218 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: #bbc3b3;
+}
+
+body {
+    background: #075507 url('../img/circuit.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-weight: 300;
+    font-size: 2rem;
+    text-shadow: 2px 2px rgb(0, 0, 0);
+}
+
+footer{
+    font-size: 2rem;
+    text-shadow: 2px 2px rgb(0, 0, 0);
+}
+
+.top-panel{
+    margin: 0.5rem;
+    background: rgba(7, 85, 7, 0.95);
+    border: 5px solid #2c514e;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+/*
+ * Styles for the Winning Modal
+ */
+
+.modal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    
+}
+.modal-content {
+    display: block;
+    background: rgba(7, 85, 7, 0.95);
+    border: 5px solid #2c514e;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    padding: 1rem 1.5rem;
+    width: 24rem;
+}
+
+.modal-content .end-score{
+    padding-top: 35px;
+}
+.modal-score {
+    text-align: center;
+    text-shadow: 2px 2px rgb(0, 0, 0);
+}
+
+.modal-score .restart{
+    text-align: right;
+    text-shadow: 2px 2px rgb(0, 0, 0);
+}
+.modal-score .stars {
+    padding: 0;
+}
+
+.modal-score .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.modal-score .timer {
+    float: left;
+}
+
+.modal-score .moves {
+    float: right;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 660px;
+    min-height: 680px;
+    background: rgba(7, 85, 7, 0.95);
+    border: 5px solid #2c514e;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: url('../img/frontface.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+    font-size: 0px;
+    color: #7c7878;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1) rotateY(0deg);
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.deck .card.open {
+    font-size: 33px;
+    background: url('../img/backface.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+    cursor: default;
+    pointer-events: none;
+    transform: scale(0.90) rotateY(180deg);
+    transition: transform 0.3s;
+}
+
+.deck .card.show {
+    font-size: 33px;
+    background: url('../img/backface.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.deck .card.match {
+    cursor: default;
+    background: url('../img/backface.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+    border: 3px solid #bbc3b3;
+    border-radius: 5px;
+    font-size: 33px;
+    pointer-events: none;
+    transform: scale(0.90) rotateY(180deg);
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    width: 415px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    text-shadow: 2px 2px rgb(0, 0, 0);
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .timer {
+    margin-left: 35px;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.score-panel .cards-left {
+    margin-left: 25px;
+}
